@@ -14,15 +14,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
     if (i == slideAmount) {
       i = 0;
     }
-    changeImage(`${[i+1]}.jpg`);
+    changeImage(`slide_${[i+1]}.jpg`);
   });
   moveLeft.addEventListener('click', function() {
-    var i = slide.src.replace('file:///C:/Users/piotr/Desktop/iSlider/', '').replace('.jpg', '')
+    var i = slide.src
+    var sliceStart = i.search('slide') + 6;
+    var sliceEnd =  i.search('.jpg');
+    i = i.slice(sliceStart,sliceEnd);
+
     if (i == 1) {
       i = 5
-      changeImage(`${[i-1]}.jpg`);
+      changeImage(`slide_${[i-1]}.jpg`);
     }
-    changeImage(`${[i-1]}.jpg`);
+    else{
+          changeImage(`slide_${[i-1]}.jpg`);
+    }
   });
 
 });

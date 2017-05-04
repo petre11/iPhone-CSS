@@ -23,12 +23,39 @@ body{
   border-radius:30px;
   margin:0 auto;
   background:#fff;
+  z-index: 100;
 }
 
+.iphone::before{
+  content:"";
+  position: absolute;
+  right: -70px;
+  top:86px;
+  display: block;
+  width:50px;
+  height: 50px;
+  background-image: url('arrow.png');
+  background-size: contain;
+  transform: rotate(180deg);
+  animation: arrow 2s linear infinite;
+}
+
+@keyframes arrow {
+  0%{
+    right:-70px;
+  }
+  50%{
+    right: -50px;
+  }
+  100%{
+    right:-70px;
+  }
+}
 .screen{
   width:90%;
   height:370px;
   margin:20% auto;
+  overflow: hidden;
   background: #000000;
   background: -webkit-linear-gradient(left, #434343, #000000);
   background: -o-linear-gradient(left, #434343, #000000);
@@ -57,10 +84,13 @@ body{
 }
 
 .logo{
+  position: absolute;
   width: 128px;
   height: 128px;
+  top:50px;
   margin:100px 20%;
-  visibility:hidden;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .logoOn{
@@ -69,15 +99,15 @@ body{
 
 @keyframes logoOn {
   0%{
-    visibility:hidden;
+    visibility: hidden;
     opacity: 0.5
   }
   50%{
-    visibility:visible;
+    visibility: visible;
     opacity: 0.5;
   }
   100%{
-    visibility:visible;
+    visibility: visible;
     opacity: 1;
   }
 }
@@ -186,27 +216,4 @@ body{
   background: rgba(246,246,246,1);
   border-radius:2px;
   cursor:pointer;
-}
-.menu{
-  margin-top: 10px;
-}
-.beams{
-  display: block;
-  visibility: hidden;
-  width: 20px;
-  height:2px;
-  margin: 5px 0 0 180px;
-  background:black;
-  z-index: 100;
-}
-.beamsOn{
-  animation: beamsOn 1s linear 6.5s forwards;
-}
-@keyframes beamsOn {
-  0%{
-    visibility: hidden;
-  }
-  100%{
-    visibility: visible;
-  }
 }

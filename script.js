@@ -3,14 +3,19 @@ $(document).ready(function(){
   var mainButton = $('.button_main');
   var logo = $('.logo');
   var screen = $('.screen');
-  var hamburger = $('.beams');
+  var hamburger = $('.burgerMenu');
+  var cross = $('.burgerCross');
+  var menu =$('ul');
+  var li =$('li');
+  var slide = $('.slide');
+  console.log('slide');
 
     powerButton.click(function(){
         mainButton.toggleClass('button_mainOff button_mainOn');
         logo.toggleClass('logoOn');
         screen.toggleClass('screenOn');
-        hamburger.toggleClass('beamsOn');
     });
+
 });
 
 
